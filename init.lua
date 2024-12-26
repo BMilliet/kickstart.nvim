@@ -214,7 +214,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 vim.api.nvim_create_autocmd({ 'BufEnter' }, {
   desc = 'Set filetypes for ruby',
   pattern = { 'Podfile', '*.podspec', 'Fastfile', 'Dangerfile' },
-  command = 'set filetypes=ruby',
+  command = 'set filetype=ruby',
 })
 
 -- [[ Install `lazy.nvim` plugin manager ]]
