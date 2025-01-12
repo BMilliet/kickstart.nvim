@@ -632,6 +632,21 @@ require('lazy').setup({
       --  - capabilities (table): Override fields in capabilities. Can be used to disable certain LSP features.
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
+      --
+
+      -- swift lsp
+      local lspconfig = require 'lspconfig'
+
+      lspconfig.sourcekit.setup {
+        capabilities = {
+          workspace = {
+            didChangeWatchedFiles = {
+              dynamicRegistration = true,
+            },
+          },
+        },
+      }
+
       local servers = {
         -- clangd = {},
         gopls = {
@@ -995,7 +1010,6 @@ require('lazy').setup({
   { import = 'custom.oil' },
   { import = 'custom.fugitive' },
   { import = 'custom.markdown' },
-  { import = 'custom.swift' },
   --
   -- For additional information with loading, sourcing and examples see `:help lazy.nvim-🔌-plugin-spec`
   -- Or use telescope!
